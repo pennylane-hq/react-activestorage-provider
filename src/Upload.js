@@ -5,7 +5,7 @@
  * @flow
  */
 
-import * as ActiveStorage from 'activestorage'
+import * as ActiveStorage from '@rails/activestorage'
 import { buildUrl, compactObject } from './helpers'
 
 import type { ActiveStorageFileUpload, Origin, CustomHeaders } from './types'
