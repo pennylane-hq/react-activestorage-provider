@@ -5,7 +5,7 @@
  * @flow
  */
 
-import * as ActiveStorage from '@rails/activestorage'
+import { DirectUpload } from '@rails/activestorage/src/direct_upload'
 import { buildUrl, compactObject } from './helpers'
 
 import type { ActiveStorageFileUpload, Origin, CustomHeaders } from './types'
@@ -36,12 +36,12 @@ class Upload {
     directUploadsPath: Upload.CONVENTIONAL_DIRECT_UPLOADS_PATH,
   }
 
-  directUpload: ActiveStorage.DirectUpload
+  directUpload: DirectUpload
   options: { ...Options, ...typeof Upload.defaultOptions }
 
   constructor(file: File, options: Options) {
     this.options = { ...Upload.defaultOptions, ...compactObject(options) }
-    this.directUpload = new ActiveStorage.DirectUpload(
+    this.directUpload = new DirectUpload(
       file,
       this.directUploadsUrl,
       this
